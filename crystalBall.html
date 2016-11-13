@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystal Ball Challenge</title>
+
+	<!-- //JQuery CDN -->
+
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+	<!-- //Bootstrap CDN -->
+
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+	<h1>Crystal Collector!</h1>
+
+	<h3 id="numberToGuess">Random Number</h3>
+	<h3 id="totalScore">Total Score</h3>
+	<h3 id="winCount">Wins</h3>
+	<h3 id="lossCount">Losses</h3>
+	<br><br><br>
+
+ 	<button id="crystal1" class="btn btn-warning number" value="9"><h1> </h1></button>
+ 	<button id="crystal2" class="btn btn-danger number" value="5"><h1> </h1></button>
+ 	<button id="crystal3" class="btn btn-success number" value="12"><h1> </h1></button>
+ 	<button id="crystal4" class="btn btn-primary number" value="3"><h1> </h1></button>
+
+ <script type="text/javascript"> 
+
+	$(document).ready(function(){
+
+	//Global Variables
+
+	var crystalChosen;
+	var winCount = 0;
+	var lossCount = 0;
+	var totalScore = 0;
+	var getRandomArbitrary;
+
+	//Random number is generated (number between 19-120) 
+
+	// function startGame() {
+	// randomNumber = Math.floor((Math.random() * 119) + 1);
+
+	function getRandomArbitrary(min, max) {
+  		return Math.random() * (120 - 19) + 19;
+	
+	$("#numberToGuess").html(getRandomArbitrary);
+	console.log(getRandomArbitrary);
+
+	getRandomArbitrary();
+
+	}
+ 
+ 	// User clicks on Crystal and hidden value is added to Total Score
+
+
+	$(".number").on("click", function() {
+
+	 if (crystalChosen) {
+	 	totalScore += this.value;
+	 	$("#totalScore").html(totalScore);
+
+	 	console.log(crystalChosen)
+	 }
+
+
+	 // If Total Score equals Random Number, user Wins! Else if Total Score exceeds Random Number, user loses
+
+
+	 if (totalScore) {
+	 	totalScore === getRandomArbitrary;
+	 	winCount++
+
+	 	$("#winCount").html(winCount);
+	 }
+	 else{
+	 	totalScore >= getRandomArbitrary;
+	 	lossCount++
+
+	 	$("#lossCount").html(lossCount);
+	 }
+
+	})
+
+})
+
+
+ </script>
+	
+
+</body>
+</html>
